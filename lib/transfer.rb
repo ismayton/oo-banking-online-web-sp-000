@@ -17,7 +17,8 @@ class Transfer
     if @status == "pending"
       @sender.withdraw(@amount)
       @receiver.deposit(@amount)
-      @status = 'complete'
+      if @sender.valid?
+        @status = 'complete'
     
     end
   end 
