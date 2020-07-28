@@ -17,7 +17,6 @@ class BankAccount
   
   def withdraw(amount)
     @balance = @balance - amount
-    binding.pry
   end 
   
   def display_balance
