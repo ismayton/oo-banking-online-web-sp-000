@@ -10,7 +10,10 @@ class Transfer
   end
 
   def valid? 
-    @sender.valid? && @receiver.valid? ? true:false 
+    if @sender.valid? && @receiver.valid? && (@sender.balance - @amount > 0)
+      true 
+    else 
+      false
   end 
   
   def execute_transaction
