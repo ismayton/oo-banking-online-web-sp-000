@@ -1,3 +1,5 @@
+require 'pry'
+
 class BankAccount
 
   attr_accessor :balance, :status
@@ -14,7 +16,8 @@ class BankAccount
   end 
   
   def withdraw(amount)
-    @balance -= amount
+    @balance = @balance - amount
+    binding.pry
   end 
   
   def display_balance
