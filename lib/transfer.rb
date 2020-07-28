@@ -10,16 +10,15 @@ class Transfer
   end
 
   def valid? 
-    if @sender.valid? && @receiver.valid? && (@sender.balance - @amount > 0)
-      true 
-    else 
-      false
+    @sender.valid? && @receiver.valid? ? true : false
   end 
   
   def execute_transaction
     if @status == "pending" && self.valid?
       @sender.withdraw(@amount)
       @receiver.deposit(@amount)
+    end
+    if @sender.valid?
       @status = 'complete'
     else
       @status = "rejected"
