@@ -17,11 +17,13 @@ class Transfer
     if @status == "pending"
       @sender.withdraw(@amount)
       @receiver.deposit(@amount)
-      if @sender.valid?
-        @status = 'complete'
-      else
-        return "failed"
-      end
+    end
+    if @sender.valid?
+      @status = 'complete'
+    else
+      @status = "failed"
+      return "Transaction rejected. Please check your account balance."
+    end
     end
   end 
   
