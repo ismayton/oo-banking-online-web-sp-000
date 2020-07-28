@@ -20,7 +20,6 @@ class Transfer
       @sender.withdraw(@amount)
       @receiver.deposit(@amount)
     end
-    binding.pry
     if @sender.valid?
       @status = 'complete'
     else
